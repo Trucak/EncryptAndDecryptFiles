@@ -6,7 +6,7 @@ These Python functions allow you to encrypt and decrypt files using the Fernet e
 ## Installation
 
 
-o use these functions, you must have Python 3.x and the cryptography library installed on your machine. You can install the library using pip:
+To use these functions, you must have Python 3.x and the cryptography library installed on your machine. You can install the library using pip:
 
 ```bash
 pip3 install cryptography
