@@ -52,7 +52,13 @@ def write_key_to_file(key):
     Returns:
     None
     """
-    with open('key.txt', 'wb') as f:
+    i = 1
+    filename = f'key{i}.txt'
+    while os.path.exists(filename):
+        i += 1
+        filename = f'key{i}.txt'
+
+    with open(filename, 'wb') as f:
         f.write(key)
 
 if __name__ == "__main__":
