@@ -39,8 +39,8 @@ def generate_key():
     key: Fernet object for encryption
     """
     key = Fernet.generate_key()  # Generate a new key.
-    write_key_to_file(key)
-    return Fernet(key)
+    filename = write_key_to_file(key)
+    return Fernet(key), filename
 
 def write_key_to_file(key):
     """
@@ -61,9 +61,11 @@ def write_key_to_file(key):
     with open(filename, 'wb') as f:
         f.write(key)
 
+    return filename
+
 if __name__ == "__main__":
     file_path = input("Please enter the path to the file you want to encrypt:")
-    key = generate_key()
+    key, filename = generate_key()
     encrypted_file_path = encrypt_file(file_path, key)
     print(f"The file at {file_path} was successfully encrypted. The file {encrypted_file_path} was generated with the encrypted file content.")
-    print(f"The key was successfully saved to the key.txt file.")
+    print(f"The key was successfully saved to the {filename} file.")
