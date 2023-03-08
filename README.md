@@ -27,7 +27,7 @@ python3 encrypt_file.py
 You will be prompted to enter the file path for the file you want to encrypt. Once you enter the path, the file will be encrypted and saved to a new file with the "_encrypted" suffix added to the original file name.
 #### generate_key()
 
-This function generates a new Fernet encryption key and saves it to a file called key.txt. The function returns the encryption key as a Fernet object.
+This function generates a new Fernet encryption key and saves it to a file with a sequential number appended to the file name, e.g., "key1.txt", "key2.txt", and so on. The function returns the encryption key as a Fernet object.
 
 #### write_key_to_file(key)
 
