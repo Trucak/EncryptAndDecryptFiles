@@ -28,7 +28,7 @@ def decrypt_file(file_path, key):
 
     return decrypted_file_path
 
-def get_key():
+def get_key(i):
     """
     This function prompts the user for the decryption key and returns a Fernet object with the provided key.
 
@@ -38,14 +38,19 @@ def get_key():
     Returns:
     key: Fernet object for decryption
     """
-    key_string = input("Enter the decryption key:")
-    key = Fernet(key_string.encode())  # Create a Fernet object with the provided key.
+    key_file = f"key{i}.txt"
+    with open(key_file, "rb") as f:
+        key_string = f.read().strip()  # Read the key from the file.
+
+    key = Fernet(key_string)  # Create a Fernet object with the key.
     return key
 
 
 if __name__ == "__main__":
     file_path = input("Enter the path to the file you wish to decrypt:")
-    key = get_key()
+    i = int(input("Enter the sequential number of the key file used for encryption:"))
+    key = get_key(i)
     decrypted_file_path = decrypt_file(file_path, key)
     print(f"The file at {file_path} was decrypted successfully. The file {decrypted_file_path} with the decrypted file content was generated.")
-    os.remove("key.txt")
+    key_file = f"key{i}.txt"
+    os.remove(key_file)
