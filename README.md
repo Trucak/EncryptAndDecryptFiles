@@ -47,4 +47,4 @@ To use this function, navigate to the directory containing the decrypt_file.py f
 python3 decrypt_file.py
 ```
 
-You will be prompted to enter the file path for the encrypted file you want to decrypt and the generated key. Once you enter the path, the file will be decrypted and saved to a new file with the "_decrypted" suffix added to the original file name.
+You will be prompted to enter the file path for the encrypted file you want to decrypt and the index of the key file to use for decryption. Once you enter the path and the index, the file will be decrypted and saved to a new file with the "_decrypted" suffix added to the original file name. The key file used for decryption will not be deleted.
